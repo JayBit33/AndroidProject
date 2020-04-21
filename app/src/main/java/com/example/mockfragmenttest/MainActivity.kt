@@ -1,8 +1,10 @@
 package com.example.mockfragmenttest
 
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.core.net.toUri
 import kotlinx.android.synthetic.main.frag_one.*
 
 class MainActivity : AppCompatActivity() {
@@ -32,9 +34,10 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-    fun showFragTwo(appName:String, imgUrl:String) {
+    fun showFragTwo(appName: String) {
         val transaction = manager.beginTransaction()
         val fragment = FragTwo.newInstance()
+        fragment.handleImage(appName)
         transaction.replace(R.id.frag_handler, fragment)
         transaction.addToBackStack(null)
         transaction.commit()

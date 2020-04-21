@@ -26,16 +26,16 @@ class FragOne: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         btnFacebook.setOnClickListener {
-            (activity as MainActivity).showFragTwo("facebook,","drawable/facebook.png")
+            (activity as MainActivity).showFragTwo("facebook")
         }
         btnGit.setOnClickListener {
-            (activity as MainActivity).showFragTwo("Github,","drawable/git.png")
+            (activity as MainActivity).showFragTwo("github")
         }
         btnPin.setOnClickListener {
-            (activity as MainActivity).showFragTwo("pinterest,","drawable/pinterst.png")
+            (activity as MainActivity).showFragTwo("pinterest")
         }
         btnGoogle.setOnClickListener {
-            (activity as MainActivity).showFragTwo("Google,","drawable/google_white.png")
+            (activity as MainActivity).showFragTwo("google")
         }
     }
 }

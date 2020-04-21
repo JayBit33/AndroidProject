@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/logo"
             android:layout_width="115dp"
             android:layout_height="77dp"
             android:layout_marginTop="16dp"
@@ -32,7 +32,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/myApps_layout"

@@ -1,28 +1,16 @@
 package com.example.mockfragmenttest
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.frag_two.*
 
 class FragTwo: Fragment() {
 
     companion object {
         fun newInstance() = FragTwo()
-    }
-    val TAG = "FragTwo"
-
-    override fun onAttach(context: Context) {
-        Log.d(TAG, "onAttach")
-        super.onAttach(context)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d(TAG, "onCreate")
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
@@ -35,5 +23,19 @@ class FragTwo: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        btnBack.setOnClickListener {
+            (activity as MainActivity).showFragOne()
+        }
     }
+
+    fun handleImage(appName:String) {
+        if(appName == "facebook") {
+            logo.setImageResource(R.drawable.facebook)
+        } else if (appName == "google") {
+            logo.setImageResource(R.drawable.google_white)
+        }
+    }
+
+
 }
