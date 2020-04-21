@@ -35,7 +35,9 @@ class FragTwo: Fragment() {
         } else if (appName == "google") {
             logo.setImageResource(R.drawable.google_white)
         }
+        else if (appName == "twitter") {
+            logo.setImageResource(R.drawable.twitter)
     }
-
+    }
 
 }
