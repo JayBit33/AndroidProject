@@ -12,33 +12,21 @@
 
         <FrameLayout
             android:id="@+id/frag_handler"
-            android:layout_width="409dp"
-            android:layout_height="607dp"
+            android:layout_width="407dp"
+            android:layout_height="711dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="48dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_switch">
+            app:layout_constraintTop_toTopOf="parent">
 
         </FrameLayout>
 
-        <Button
-            android:id="@+id/btn_switch"
-            android:layout_width="421dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Switch!"
-            app:layout_constraintBottom_toTopOf="@+id/frag_handler"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

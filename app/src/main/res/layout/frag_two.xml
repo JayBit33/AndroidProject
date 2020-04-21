@@ -8,16 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="223dp"
-            android:layout_height="155dp"
-            android:layout_marginTop="72dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/facebook" />
-
         <EditText
             android:id="@+id/username_input"
             android:layout_width="288dp"
@@ -28,7 +18,7 @@
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <EditText
             android:id="@+id/password_input"
@@ -45,7 +35,7 @@
         <EditText
             android:id="@+id/note_input"
             android:layout_width="292dp"
-            android:layout_height="85dp"
+            android:layout_height="80dp"
             android:layout_marginTop="32dp"
             android:ems="10"
             android:gravity="start|top"
@@ -65,6 +55,17 @@
             android:text="Back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="64dp"
+            app:layout_constraintBottom_toTopOf="@+id/username_input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/facebook" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>
