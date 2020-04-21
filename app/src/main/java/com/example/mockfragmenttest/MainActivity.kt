@@ -14,32 +14,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val switch = findViewById<Button>(R.id.btn_switch)
         showFragOne()
-        switch.setOnClickListener {
+       /* switch.setOnClickListener {
             if (isFragOneLoaded) {
                 showFragTwo()
             } else {
                 showFragOne()
             }
-        }
-
+        }*/
     }
 
     fun showFragOne() {
+
         val transaction = manager.beginTransaction()
-        val fragment = FragOne()
+        val fragment = FragOne.newInstance()
         transaction.replace(R.id.frag_handler, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
-
-//        val addAccountBtn = fragment.add_account_btn
-//        addAccountBtn.setOnClickListener {
-//            showFragTwo()
-//        }
     }
 
-    fun showFragTwo() {
+    fun showFragTwo(appName:String, imgUrl:String) {
         val transaction = manager.beginTransaction()
-        val fragment = FragTwo()
+        val fragment = FragTwo.newInstance()
         transaction.replace(R.id.frag_handler, fragment)
         transaction.addToBackStack(null)
         transaction.commit()

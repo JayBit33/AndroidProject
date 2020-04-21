@@ -9,6 +9,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
 class FragTwo: Fragment() {
+
+    companion object {
+        fun newInstance() = FragTwo()
+    }
     val TAG = "FragTwo"
 
     override fun onAttach(context: Context) {

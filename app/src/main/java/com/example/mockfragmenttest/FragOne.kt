@@ -1,31 +1,18 @@
 package com.example.mockfragmenttest
 
-import androidx.appcompat.app.AppCompatActivity
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.frag_one.*
 
 class FragOne: Fragment() {
-    val TAG = "FragOne"
-//    private val mainActivity = MainActivity()
 
-    override fun onAttach(context: Context) {
-        Log.d(TAG, "onAttach")
-        super.onAttach(context)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d(TAG, "onCreate")
-        super.onCreate(savedInstanceState)
-//        val addAccountBtn = mainActivity.findViewById<Button>(R.id.add_account_btn)
-//        addAccountBtn.setOnClickListener {
-//            mainActivity.showFragTwo()
-//        }
+    companion object {
+        fun newInstance() = FragOne()
     }
 
     override fun onCreateView(
@@ -38,5 +25,17 @@ class FragOne: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        btnFacebook.setOnClickListener {
+            (activity as MainActivity).showFragTwo("facebook,","drawable/facebook.png")
+        }
+        btnGit.setOnClickListener {
+            (activity as MainActivity).showFragTwo("Github,","drawable/git.png")
+        }
+        btnPin.setOnClickListener {
+            (activity as MainActivity).showFragTwo("pinterest,","drawable/pinterst.png")
+        }
+        btnGoogle.setOnClickListener {
+            (activity as MainActivity).showFragTwo("Google,","drawable/google_white.png")
+        }
     }
 }
