@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "380055311527",
+    "firebase_url": "https://logcabin-722f3.firebaseio.com",
+    "project_id": "logcabin-722f3",
+    "storage_bucket": "logcabin-722f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380055311527:android:cd711ba0280837730bb782",
+        "android_client_info": {
+          "package_name": "com.example.mockfragmenttest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380055311527-sag0pnv136evmcefns5i2haauleoj2th.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCl1P3AOZZ9cLmjoBxNHCuoqt540fP2ifE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380055311527-sag0pnv136evmcefns5i2haauleoj2th.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

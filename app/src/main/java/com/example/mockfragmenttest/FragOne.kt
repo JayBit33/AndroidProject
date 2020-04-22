@@ -1,6 +1,8 @@
 package com.example.mockfragmenttest
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +12,8 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.frag_one.*
 
 class FragOne: Fragment() {
+
+ //   private lateinit var viewModel: MainViewModel
 
     companion object {
         fun newInstance() = FragOne()
@@ -37,5 +41,7 @@ class FragOne: Fragment() {
         btnGoogle.setOnClickListener {
             (activity as MainActivity).showFragTwo("google")
         }
-    }
+}
+
+
 }
