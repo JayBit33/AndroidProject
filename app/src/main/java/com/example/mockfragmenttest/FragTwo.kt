@@ -8,6 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
 import kotlinx.android.synthetic.main.frag_two.*
 
 class FragTwo: Fragment() {
@@ -21,9 +24,6 @@ class FragTwo: Fragment() {
    // private var user : FirebaseUser? = null
 
     lateinit var appName: String
-    lateinit var usernameInput: String
-    lateinit var passwordInput: String
-    lateinit var notesInput: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,13 +69,41 @@ class FragTwo: Fragment() {
 
     fun saveApp() {
         var application = Applications().apply {
-            usernameInput = username_input.text.toString()
-            passwordInput = password_input.text.toString()
-            notesInput = note_input.text.toString()
+            userName = username_input.text.toString()
+            passWord = password_input.text.toString()
+            notes = note_input.text.toString()
+
         }
-        viewModel.save(application)
+        save(application)
+
     }
 
+    private lateinit var firestore : FirebaseFirestore
+    private var _applications: MutableLiveData<ArrayList<Applications>> = MutableLiveData<ArrayList<Applications>>()
+    // private var storageReferenence = FirebaseStorage.getInstance().getReference()
+    private var _app = Applications()
+
+    init {
+        firestore = FirebaseFirestore.getInstance()
+        firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
+    }
+
+    fun save (applications: Applications){
+        firestore.collection("Applications")
+            .document()
+            .set(applications)
+            .addOnSuccessListener {
+                Log.d("Firebase", "document saved")
+            }
+            .addOnFailureListener{
+                Log.d("Firebase", "save failed")
+            }
+
+    }
+
+    internal var applications: Applications
+        get() {return _app}
+        set(value) {_app = value}
 }
 
    /* override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
