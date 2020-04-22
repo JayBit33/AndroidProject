@@ -8,10 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.frag_two.*
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
-import kotlinx.android.synthetic.main.frag_two.*
 
 class FragTwo: Fragment() {
 
@@ -24,6 +24,9 @@ class FragTwo: Fragment() {
    // private var user : FirebaseUser? = null
 
     lateinit var appName: String
+    lateinit var usernameInput: String
+    lateinit var passwordInput: String
+    lateinit var notesInput: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,9 +45,23 @@ class FragTwo: Fragment() {
 
         btnBack.setOnClickListener {
             // save users input (username and password)
-           saveApp()
+            usernameInput = username_input.text.toString()
+            passwordInput = password_input.text.toString()
+            notesInput = note_input.text.toString()
+            var id: String = " "
             // TODO: Save to firebase Storage
             // Note: Use appName to differentiate which application your saving the user input to. i.e. facebook, google etc.
+            if(appName == "facebook") {
+                id = " "
+            } else if (appName == "google") {
+                id = " "
+            } else if (appName == "github") {
+                id = ""
+            } else if (appName == "pinterest") {
+                id = " "
+            }
+
+            saveApp(id)
 
             (activity as MainActivity).showFragOne()
         }
@@ -67,30 +84,27 @@ class FragTwo: Fragment() {
         )
     }*/
 
-    fun saveApp() {
+    fun saveApp(id:String) {
         var application = Applications().apply {
-            userName = username_input.text.toString()
-            passWord = password_input.text.toString()
-            notes = note_input.text.toString()
-
+            app = appName
+            userName = usernameInput
+            passWord = passwordInput
+            notes = notesInput
         }
-        save(application)
 
+        save(application, id)
     }
 
     private lateinit var firestore : FirebaseFirestore
-    private var _applications: MutableLiveData<ArrayList<Applications>> = MutableLiveData<ArrayList<Applications>>()
-    // private var storageReferenence = FirebaseStorage.getInstance().getReference()
-    private var _app = Applications()
 
     init {
         firestore = FirebaseFirestore.getInstance()
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 
-    fun save (applications: Applications){
+    fun save (applications: Applications, id:String){
         firestore.collection("Applications")
-            .document()
+            .document(id)
             .set(applications)
             .addOnSuccessListener {
                 Log.d("Firebase", "document saved")
@@ -100,10 +114,6 @@ class FragTwo: Fragment() {
             }
 
     }
-
-    internal var applications: Applications
-        get() {return _app}
-        set(value) {_app = value}
 }
 
    /* override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
