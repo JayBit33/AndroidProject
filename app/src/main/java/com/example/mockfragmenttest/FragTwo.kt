@@ -12,8 +12,10 @@ import kotlinx.android.synthetic.main.frag_two.*
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.firebase.ui.auth.AuthUI
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 
@@ -77,16 +79,24 @@ class FragTwo: Fragment() {
             "github" -> imageView.setImageResource(R.drawable.git)
             "pinterest" -> imageView.setImageResource(R.drawable.pinterst)
         }
+
+        // Grab data from firestore for the correct application
+        when(appName) {
+            "facebook" -> getApp("facebook")
+            "google" -> getApp("google")
+            "github" -> getApp("github")
+            "pinterest" -> getApp("pinterest")
+        }
     }
 
-    fun logon() {
-        var providers = arrayListOf(
-            AuthUI.IdpConfig.EmailBuilder().build()
-        )
-        startActivityForResult(
-            AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build() , AUTH_REQUEST_CODE
-        )
-    }
+//    fun logon() {
+//        var providers = arrayListOf(
+//            AuthUI.IdpConfig.EmailBuilder().build()
+//        )
+//        startActivityForResult(
+//            AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build() , AUTH_REQUEST_CODE
+//        )
+//    }
 
     fun saveApp(id:String) {
         var application = Applications().apply {
@@ -106,10 +116,10 @@ class FragTwo: Fragment() {
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 
-    fun save (applications: Applications, id:String){
+    fun save (application: Applications, id:String){
         firestore.collection("Applications")
             .document(id)
-            .set(applications)
+            .set(application)
             .addOnSuccessListener {
                 Log.d("Firebase", "document saved")
             }
@@ -119,16 +129,31 @@ class FragTwo: Fragment() {
 
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        viewModel.applications.observe(this, Observer{
-            applications ->  username_input.setText(applications.toString())
-        })
-        if (requestCode == Activity.RESULT_OK){
-            if (resultCode == AUTH_REQUEST_CODE)
-                user =  FirebaseAuth.getInstance().currentUser
-        }
-
+    // Retrieves firestore data and displays username, password and notes in FragTwo layout
+    fun getApp(id: String) {
+        firestore.collection("Applications")
+            .document(id)
+            .get()
+            .addOnSuccessListener(OnSuccessListener<DocumentSnapshot> { documentSnapshot ->
+                val username = documentSnapshot.get("userName")
+                username_input.setText(username.toString())
+                val password = documentSnapshot.get("passWord")
+                password_input.setText(password.toString())
+                val notes = documentSnapshot.get("notes")
+                note_input.setText(notes.toString())
+            })
     }
+
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        viewModel.applications.observe(this, Observer{
+//            applications ->  username_input.setText(applications)
+//        })
+//        if (requestCode == Activity.RESULT_OK){
+//            if (resultCode == AUTH_REQUEST_CODE)
+//                user =  FirebaseAuth.getInstance().currentUser
+//        }
+//
+//    }
 }
 
