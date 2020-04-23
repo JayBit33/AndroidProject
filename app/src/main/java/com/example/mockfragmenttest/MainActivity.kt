@@ -9,7 +9,6 @@ import kotlinx.android.synthetic.main.frag_one.*
 import kotlinx.android.synthetic.main.frag_two.*
 
 class MainActivity : AppCompatActivity() {
-    var isFragOneLoaded = true
     val manager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
