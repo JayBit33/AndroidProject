@@ -10,6 +10,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.frag_two.*
 import androidx.lifecycle.MutableLiveData
+import com.firebase.ui.auth.AuthUI
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 
@@ -21,7 +24,7 @@ class FragTwo: Fragment() {
 
     private lateinit var viewModel: MainViewModel
     private val AUTH_REQUEST_CODE = 2000
-   // private var user : FirebaseUser? = null
+    private var user : FirebaseUser? = null
 
     lateinit var appName: String
     lateinit var usernameInput: String
@@ -39,9 +42,9 @@ class FragTwo: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-      /*  btnLogon.setOnClickListener {
-            logon()
-        }*/
+       btnLogon.setOnClickListener {
+           logon()
+       }
 
         btnBack.setOnClickListener {
             // save users input (username and password)
@@ -75,14 +78,14 @@ class FragTwo: Fragment() {
         }
     }
 
-   /* fun logon() {
+    fun logon() {
         var providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build()
         )
         startActivityForResult(
             AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build() , AUTH_REQUEST_CODE
         )
-    }*/
+    }
 
     fun saveApp(id:String) {
         var application = Applications().apply {
@@ -114,13 +117,14 @@ class FragTwo: Fragment() {
             }
 
     }
-}
 
-   /* override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == Activity.RESULT_OK){
             if (resultCode == AUTH_REQUEST_CODE)
                 user =  FirebaseAuth.getInstance().currentUser
         }
 
-}*/
+    }
+}
+

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.core.net.toUri
+import com.firebase.ui.auth.AuthUI
 import kotlinx.android.synthetic.main.frag_one.*
 import kotlinx.android.synthetic.main.frag_two.*
 
@@ -36,4 +37,6 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
 
     }
+
+
 }

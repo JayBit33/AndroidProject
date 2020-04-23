@@ -9,11 +9,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.firebase.ui.auth.AuthUI
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.frag_one.*
+import kotlinx.android.synthetic.main.frag_one.btnLogon
+import kotlinx.android.synthetic.main.frag_two.*
 
 class FragOne: Fragment() {
 
  //   private lateinit var viewModel: MainViewModel
+    private val AUTH_REQUEST_CODE = 2000
+    private var user : FirebaseUser? = null
 
     companion object {
         fun newInstance() = FragOne()
@@ -41,7 +48,28 @@ class FragOne: Fragment() {
         btnGoogle.setOnClickListener {
             (activity as MainActivity).showFragTwo("google")
         }
+        btnLogon.setOnClickListener {
+            logon()
+        }
 }
+
+    fun logon() {
+        var providers = arrayListOf(
+            AuthUI.IdpConfig.EmailBuilder().build()
+        )
+        startActivityForResult(
+            AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build() , AUTH_REQUEST_CODE
+        )
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Activity.RESULT_OK){
+            if (resultCode == AUTH_REQUEST_CODE)
+                user =  FirebaseAuth.getInstance().currentUser
+        }
+
+    }
 
 
 }
