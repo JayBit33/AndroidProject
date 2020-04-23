@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.frag_two.*
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -55,13 +56,13 @@ class FragTwo: Fragment() {
             // TODO: Save to firebase Storage
             // Note: Use appName to differentiate which application your saving the user input to. i.e. facebook, google etc.
             if(appName == "facebook") {
-                id = " "
+                id = "facebook"
             } else if (appName == "google") {
-                id = " "
+                id = "google"
             } else if (appName == "github") {
-                id = ""
+                id = "github"
             } else if (appName == "pinterest") {
-                id = " "
+                id = "pinterest"
             }
 
             saveApp(id)
@@ -89,7 +90,7 @@ class FragTwo: Fragment() {
 
     fun saveApp(id:String) {
         var application = Applications().apply {
-            app = appName
+          //  app = appName
             userName = usernameInput
             passWord = passwordInput
             notes = notesInput
@@ -120,6 +121,9 @@ class FragTwo: Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        viewModel.applications.observe(this, Observer{
+            applications ->  username_input.setText(applications.toString())
+        })
         if (requestCode == Activity.RESULT_OK){
             if (resultCode == AUTH_REQUEST_CODE)
                 user =  FirebaseAuth.getInstance().currentUser
