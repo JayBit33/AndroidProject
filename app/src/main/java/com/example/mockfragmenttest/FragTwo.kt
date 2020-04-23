@@ -46,7 +46,7 @@ class FragTwo: Fragment() {
         super.onActivityCreated(savedInstanceState)
 
        btnLogon.setOnClickListener {
-           logon()
+          // logon()
        }
 
         btnBack.setOnClickListener {
