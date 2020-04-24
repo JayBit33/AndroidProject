@@ -53,8 +53,6 @@ class FragTwo: Fragment() {
             passwordInput = Plain_password.text.toString()
             notesInput = note_input.text.toString()
             var id: String = " "
-            // TODO: Save to firebase Storage
-            // Note: Use appName to differentiate which application your saving the user input to. i.e. facebook, google etc.
             if(appName == "facebook") {
                 id = "facebook"
             } else if (appName == "google") {
@@ -111,7 +109,6 @@ class FragTwo: Fragment() {
 
     fun saveApp(id:String) {
         var application = Applications().apply {
-          //  app = appName
             userName = usernameInput
             passWord = passwordInput
             notes = notesInput
@@ -157,9 +154,6 @@ class FragTwo: Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
        super.onActivityResult(requestCode, resultCode, data)
-      //  viewModel.applications.observe(this, Observer{
-        //    applications ->  username_input.setText(applications)
-       // })
         if (requestCode == Activity.RESULT_OK){
             if (resultCode == AUTH_REQUEST_CODE)
                 user =  FirebaseAuth.getInstance().currentUser
