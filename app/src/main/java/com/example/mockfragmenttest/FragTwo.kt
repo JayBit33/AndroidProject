@@ -1,7 +1,5 @@
 package com.example.mockfragmenttest
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,11 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.frag_two.*
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -46,13 +40,13 @@ class FragTwo: Fragment() {
         super.onActivityCreated(savedInstanceState)
 
        btnLogon.setOnClickListener {
-           logon()
+          // logon()
        }
 
         btnBack.setOnClickListener {
             // save users input (username and password)
             usernameInput = username_input.text.toString()
-            passwordInput = password_input.text.toString()
+            passwordInput = Plain_password.text.toString()
             notesInput = note_input.text.toString()
             var id: String = " "
             // TODO: Save to firebase Storage
@@ -138,7 +132,7 @@ class FragTwo: Fragment() {
                 val username = documentSnapshot.get("userName")
                 username_input.setText(username.toString())
                 val password = documentSnapshot.get("passWord")
-                password_input.setText(password.toString())
+                Plain_password.setText(password.toString())
                 val notes = documentSnapshot.get("notes")
                 note_input.setText(notes.toString())
             })
