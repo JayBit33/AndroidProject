@@ -37,18 +37,6 @@
             app:layout_constraintTop_toBottomOf="@+id/appLogo"
             app:layout_constraintVertical_bias="0.0" />
 
-        <Button
-            android:id="@+id/btnLogon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.529"
-            app:layout_constraintStart_toEndOf="@+id/appLogo"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.084" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/myApps_layout"
             android:layout_width="414dp"
@@ -72,10 +60,10 @@
                 android:background="@drawable/usbank"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.486"
-                app:layout_constraintStart_toEndOf="@+id/btnGoogle"
+                app:layout_constraintHorizontal_bias="0.806"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnPin"
-                app:layout_constraintVertical_bias="0.22" />
+                app:layout_constraintVertical_bias="0.253" />
 
             <Button
                 android:id="@+id/btnGoogle"
@@ -86,10 +74,10 @@
                 android:background="@drawable/google_white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btnPin"
-                app:layout_constraintHorizontal_bias="0.22"
+                app:layout_constraintHorizontal_bias="0.136"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.747" />
+                app:layout_constraintVertical_bias="0.375" />
 
             <Button
                 android:id="@+id/btnGit"
@@ -107,39 +95,28 @@
                 android:id="@+id/btnPin"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
-                android:layout_marginStart="216dp"
-                android:layout_marginLeft="216dp"
-                android:layout_marginTop="224dp"
                 android:background="@drawable/pinterst"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.806"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.395" />
+                app:layout_constraintTop_toBottomOf="@+id/btnGit"
+                app:layout_constraintVertical_bias="0.088" />
 
-            <Button  
-                android:id="@+id/btnGoogle"
-                android:layout_width="125dp"
-                android:layout_height="125dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginTop="224dp"
-                android:background="@drawable/google_white"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.395" />
-          
             <Button
                 android:id="@+id/btnTwitter"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="40dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginRight="52dp"
+                android:layout_marginBottom="100dp"
                 android:background="@drawable/twitter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btnPin"
-                app:layout_constraintHorizontal_bias="0.22"    />
+                app:layout_constraintHorizontal_bias="0.982"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnGoogle"
+                app:layout_constraintVertical_bias="0.722" />
 
             <Button
                 android:id="@+id/btnFacebook"
@@ -154,19 +131,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.035" />
-          
-          <Button
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
             android:id="@+id/btnLogon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Login"
+            android:text="logon"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.466"
-            app:layout_constraintStart_toEndOf="@+id/appLogo"
-            app:layout_constraintTop_toTopOf="parent" />
-          
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintHorizontal_bias="0.91"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.065" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

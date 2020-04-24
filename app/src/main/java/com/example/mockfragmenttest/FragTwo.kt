@@ -1,13 +1,17 @@
 package com.example.mockfragmenttest
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.firebase.ui.auth.AuthUI
 import kotlinx.android.synthetic.main.frag_two.*
 import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -39,8 +43,8 @@ class FragTwo: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-       btnLogon.setOnClickListener {
-          // logon()
+       btnLogon2.setOnClickListener {
+           logon()
        }
 
         btnBack.setOnClickListener {
