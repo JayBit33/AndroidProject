@@ -66,6 +66,11 @@ class FragTwo: Fragment() {
             } else if (appName == "pinterest") {
                 id = "pinterest"
             }
+            else if (appName == "twitter") {
+                id = "twitter"
+            }else if (appName == "usbank") {
+                id = "usbank"
+            }
 
             saveApp(id)
 
@@ -78,6 +83,10 @@ class FragTwo: Fragment() {
             "google" -> imageView.setImageResource(R.drawable.google_white)
             "github" -> imageView.setImageResource(R.drawable.git)
             "pinterest" -> imageView.setImageResource(R.drawable.pinterst)
+            "twitter" -> imageView.setImageResource(R.drawable.twitter)
+            "usbank" -> imageView.setImageResource(R.drawable.usbank)
+
+
         }
 
         // Grab data from firestore for the correct application
@@ -86,6 +95,10 @@ class FragTwo: Fragment() {
             "google" -> getApp("google")
             "github" -> getApp("github")
             "pinterest" -> getApp("pinterest")
+            "twitter" -> getApp("twitter")
+            "usbank" -> getApp("usbank")
+
+
         }
     }
 
