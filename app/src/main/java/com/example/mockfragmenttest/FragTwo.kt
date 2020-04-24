@@ -89,14 +89,14 @@ class FragTwo: Fragment() {
         }
     }
 
-//    fun logon() {
-//        var providers = arrayListOf(
-//            AuthUI.IdpConfig.EmailBuilder().build()
-//        )
-//        startActivityForResult(
-//            AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build() , AUTH_REQUEST_CODE
-//        )
-//    }
+    fun logon() {
+       var providers = arrayListOf(
+          AuthUI.IdpConfig.EmailBuilder().build()
+       )
+     startActivityForResult(
+         AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build() , AUTH_REQUEST_CODE
+    )
+  }
 
     fun saveApp(id:String) {
         var application = Applications().apply {
@@ -144,16 +144,16 @@ class FragTwo: Fragment() {
             })
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        viewModel.applications.observe(this, Observer{
-//            applications ->  username_input.setText(applications)
-//        })
-//        if (requestCode == Activity.RESULT_OK){
-//            if (resultCode == AUTH_REQUEST_CODE)
-//                user =  FirebaseAuth.getInstance().currentUser
-//        }
-//
-//    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+       super.onActivityResult(requestCode, resultCode, data)
+      //  viewModel.applications.observe(this, Observer{
+        //    applications ->  username_input.setText(applications)
+       // })
+        if (requestCode == Activity.RESULT_OK){
+            if (resultCode == AUTH_REQUEST_CODE)
+                user =  FirebaseAuth.getInstance().currentUser
+        }
+
+    }
 }
 
