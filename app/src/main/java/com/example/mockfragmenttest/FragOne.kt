@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.frag_one.btnLogon
 
 class FragOne: Fragment() {
 
- //   private lateinit var viewModel: MainViewModel
     private val AUTH_REQUEST_CODE = 2000
     private var user : FirebaseUser? = null
 

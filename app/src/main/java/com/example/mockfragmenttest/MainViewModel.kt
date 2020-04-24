@@ -11,7 +11,6 @@ class MainViewModel : ViewModel() {
 
     private lateinit var firestore : FirebaseFirestore
     private var _applications: MutableLiveData<ArrayList<Applications>> = MutableLiveData<ArrayList<Applications>>()
-   // private var storageReferenence = FirebaseStorage.getInstance().getReference()
     private var _app = Applications()
 
     init {
@@ -60,6 +59,4 @@ class MainViewModel : ViewModel() {
     internal var applications: MutableLiveData<ArrayList<Applications>>
         get() {return _applications}
         set(value) {_applications = value}
-
-
 }
