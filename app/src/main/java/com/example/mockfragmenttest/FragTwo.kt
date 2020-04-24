@@ -60,6 +60,11 @@ class FragTwo: Fragment() {
             } else if (appName == "pinterest") {
                 id = "pinterest"
             }
+            else if (appName == "twitter") {
+                id = "twitter"
+            }else if (appName == "usbank") {
+                id = "usbank"
+            }
 
             saveApp(id)
 
@@ -72,6 +77,10 @@ class FragTwo: Fragment() {
             "google" -> imageView.setImageResource(R.drawable.google_white)
             "github" -> imageView.setImageResource(R.drawable.git)
             "pinterest" -> imageView.setImageResource(R.drawable.pinterst)
+            "twitter" -> imageView.setImageResource(R.drawable.twitter)
+            "usbank" -> imageView.setImageResource(R.drawable.usbank)
+
+
         }
 
         // Grab data from firestore for the correct application
@@ -80,17 +89,21 @@ class FragTwo: Fragment() {
             "google" -> getApp("google")
             "github" -> getApp("github")
             "pinterest" -> getApp("pinterest")
+            "twitter" -> getApp("twitter")
+            "usbank" -> getApp("usbank")
+
+
         }
     }
 
-//    fun logon() {
-//        var providers = arrayListOf(
-//            AuthUI.IdpConfig.EmailBuilder().build()
-//        )
-//        startActivityForResult(
-//            AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build() , AUTH_REQUEST_CODE
-//        )
-//    }
+    fun logon() {
+       var providers = arrayListOf(
+          AuthUI.IdpConfig.EmailBuilder().build()
+       )
+     startActivityForResult(
+         AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build() , AUTH_REQUEST_CODE
+    )
+  }
 
     fun saveApp(id:String) {
         var application = Applications().apply {
@@ -138,16 +151,16 @@ class FragTwo: Fragment() {
             })
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        viewModel.applications.observe(this, Observer{
-//            applications ->  username_input.setText(applications)
-//        })
-//        if (requestCode == Activity.RESULT_OK){
-//            if (resultCode == AUTH_REQUEST_CODE)
-//                user =  FirebaseAuth.getInstance().currentUser
-//        }
-//
-//    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+       super.onActivityResult(requestCode, resultCode, data)
+      //  viewModel.applications.observe(this, Observer{
+        //    applications ->  username_input.setText(applications)
+       // })
+        if (requestCode == Activity.RESULT_OK){
+            if (resultCode == AUTH_REQUEST_CODE)
+                user =  FirebaseAuth.getInstance().currentUser
+        }
+
+    }
 }
 

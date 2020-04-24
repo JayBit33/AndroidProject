@@ -1,10 +1,8 @@
 package com.example.mockfragmenttest
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.frag_one.*
 import kotlinx.android.synthetic.main.frag_one.btnLogon
-import kotlinx.android.synthetic.main.frag_two.*
 
 class FragOne: Fragment() {
 
@@ -47,6 +44,12 @@ class FragOne: Fragment() {
         }
         btnGoogle.setOnClickListener {
             (activity as MainActivity).showFragTwo("google")
+        }
+        btnTwitter.setOnClickListener {
+            (activity as MainActivity).showFragTwo("twitter")
+        }
+        btnUsbank.setOnClickListener {
+            (activity as MainActivity).showFragTwo("usbank")
         }
         btnLogon.setOnClickListener {
             logon()
