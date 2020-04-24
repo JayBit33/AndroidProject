@@ -14,6 +14,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
+=======
+            android:layout_marginTop="16dp"
+
             android:text="Login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +39,7 @@
             app:layout_constraintVertical_bias="0.45" />
 
         <EditText
-            android:id="@+id/password_input"
+            android:id="@+id/Plain_password"
             android:layout_width="287dp"
             android:layout_height="45dp"
             android:layout_marginTop="32dp"
@@ -44,6 +47,8 @@
             android:hint="Password"
             android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
+
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.467"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,8 +68,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
+
             app:layout_constraintTop_toBottomOf="@+id/password_input"
             app:layout_constraintVertical_bias="0.0" />
+=======
+
 
         <Button
             android:id="@+id/btnBack"
@@ -72,6 +80,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+
             android:text="Back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnLogon"
@@ -87,7 +97,10 @@
             android:layout_marginTop="64dp"
             app:layout_constraintBottom_toTopOf="@+id/username_input"
             app:layout_constraintEnd_toEndOf="parent"
+
             app:layout_constraintHorizontal_bias="0.497"
+=======
+         
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.471"
